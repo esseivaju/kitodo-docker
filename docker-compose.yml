@@ -1,0 +1,25 @@
+version: '2'
+services:
+  db:
+    image: kitodo-db:3.1.0
+    volumes:
+      - ./database:/var/lib/mysql
+  elastic:
+    image: elasticsearch:5-alpine
+    environment:
+      - discovery.type=single-node
+    volumes:
+      - ./kitodo-1-data:/usr/share/elasticsearch/data
+  main:
+    build: .
+    image: kitodo:3.1.0
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - ./kitodo:/usr/local/kitodo
+    environment:
+      - DB_ADDR=db
+      - ELASTIC_ADDR=elastic
+    depends_on:
+      - db
+      - elastic
