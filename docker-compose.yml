@@ -1,7 +1,7 @@
 version: '2'
 services:
   db:
-    image: kitodo-db:3.1.0
+    image: esseivaj/kitodo-db:3.1.0
     volumes:
       - ./database:/var/lib/mysql
   elastic:
@@ -11,8 +11,8 @@ services:
     volumes:
       - ./kitodo-1-data:/usr/share/elasticsearch/data
   main:
-    build: .
-    image: kitodo:3.1.0
+    # build: ./dockerfiles/main
+    image: esseivaj/kitodo:3.1.0
     ports:
       - "127.0.0.1:8080:8080"
     volumes:
