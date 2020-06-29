@@ -12,7 +12,7 @@ services:
       - ./kitodo-1-data:/usr/share/elasticsearch/data
   main:
     # build: ./dockerfiles/main
-    image: esseivaj/kitodo:3.1.0
+    image: esseivaj/kitodo:3.1.1
     ports:
       - "127.0.0.1:8080:8080"
     volumes:

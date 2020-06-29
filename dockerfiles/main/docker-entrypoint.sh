@@ -4,6 +4,11 @@ unzip -n kitodo-production-${KITODO_VERSION}-config.zip -d ${KITODO_HOME} && chm
 
 unzip -n kitodo-production-${KITODO_VERSION}-modules.zip -d ${KITODO_MODULES}
 
+for file in $(ls ${KITODO_HOME}/scripts)
+do
+    sed -z -i -e 's/\r\n/\n/g' ${KITODO_HOME}/scripts/$file
+done
+
 # Update jdbc and elasticsearch config
 /bin/sed -i \
          "s,\(jdbc:mysql://\)[^/]*\(/.*\),\1${DB_ADDR}:${DB_PORT}\2," \
