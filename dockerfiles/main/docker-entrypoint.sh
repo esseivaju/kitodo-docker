@@ -1,8 +1,8 @@
 #!/bin/bash
 
-unzip -n kitodo-production-${KITODO_VERSION}-config.zip -d ${KITODO_HOME} && chmod u+x ${KITODO_HOME}/scripts/*.sh
+unzip -n kitodo_${KITODO_VERSION_DASH}_config_modules.zip -d ${KITODO_HOME} && f=("$KITODO_HOME"/*) && mv "$KITODO_HOME"/*/* "$KITODO_HOME" && rmdir "${f[@]}" && chmod u+x ${KITODO_HOME}/scripts/*.sh
 
-unzip -n kitodo-production-${KITODO_VERSION}-modules.zip -d ${KITODO_MODULES}
+# unzip -n kitodo-production-${KITODO_VERSION}-modules.zip -d ${KITODO_MODULES}
 
 for file in $(ls ${KITODO_HOME}/scripts)
 do

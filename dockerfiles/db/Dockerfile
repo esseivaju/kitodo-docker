@@ -7,6 +7,6 @@ ENV MYSQL_RANDOM_ROOT_PASSWORD=yes
 ENV MYSQL_DATABASE=kitodo
 ENV MYSQL_USER=kitodo
 ENV MYSQL_PASSWORD=kitodo
-ENV KITODO_VERSION=3.1.0
+ENV KITODO_VERSION=3.2
 
-COPY sql/kitodo-production-${KITODO_VERSION}.sql /docker-entrypoint-initdb.d
+COPY sql/kitodo_${KITODO_VERSION}.sql /docker-entrypoint-initdb.d
